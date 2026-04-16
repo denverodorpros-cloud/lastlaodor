@@ -106,9 +106,7 @@ if (form) {
         form.reset();
         if (successEl) successEl.hidden = false;
       } else if (errorEl) {
-        errorEl.textContent =
-          data.error ||
-          "Form failed. Check the Vercel email configuration.";
+        errorEl.textContent = formatErrorMessage(data.error);
         errorEl.hidden = false;
       }
     } catch (error) {
@@ -123,4 +121,20 @@ if (form) {
       }
     }
   });
+}
+
+function formatErrorMessage(errorValue) {
+  if (typeof errorValue === "string" && errorValue.trim()) {
+    return errorValue.trim();
+  }
+
+  if (errorValue && typeof errorValue === "object") {
+    for (const value of Object.values(errorValue)) {
+      if (typeof value === "string" && value.trim()) {
+        return value.trim();
+      }
+    }
+  }
+
+  return "Form failed. Check the Vercel email configuration.";
 }
