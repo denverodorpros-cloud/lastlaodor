@@ -85,10 +85,14 @@ if (form) {
 
     try {
       const formData = new FormData(form);
-      const response = await fetch("https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID", {
+      const payload = Object.fromEntries(formData.entries());
+      const response = await fetch("/api/estimate", {
         method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" }
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(payload)
       });
       let data = {};
 
@@ -103,8 +107,8 @@ if (form) {
         if (successEl) successEl.hidden = false;
       } else if (errorEl) {
         errorEl.textContent =
-          (data.errors && data.errors[0] && data.errors[0].message) ||
-          "Form failed. Check the Formspree endpoint.";
+          data.error ||
+          "Form failed. Check the Vercel email configuration.";
         errorEl.hidden = false;
       }
     } catch (error) {

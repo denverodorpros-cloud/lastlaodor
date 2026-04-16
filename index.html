@@ -81,7 +81,7 @@
         <div>
           <span class="eyebrow">Serving Los Angeles and surrounding areas within 100 miles</span>
           <h1>Odor Removal in Los Angeles, CA</h1>
-          <p class="lead">Pet, real estate, smoke, marijuana, vehicle, mold, and Airbnb odor removal for homes, rentals, listings, and vehicles across Los Angeles.</p>
+          <p class="lead">Real estate, pet, smoke, marijuana, vehicle, mold, and Airbnb odor removal for homes, rentals, listings, and vehicles across Los Angeles.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="contact.html">Get Free Estimate</a>
             <a class="btn btn-secondary" href="services.html">View Services</a>
@@ -298,12 +298,16 @@
           <span class="eyebrow">Free estimate</span>
           <h2>Request a free odor removal estimate</h2>
           <p class="lead">This form is built for Los Angeles homeowners, landlords, property managers, agents, hosts, and vehicle owners who need a fast quote.</p>
-          <p class="muted">Set Formspree to send to <strong>info@laodorpros.com</strong>.</p>
-          <p class="form-note"><strong>Current endpoint placeholder:</strong> https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID</p>
+          <p class="muted">Estimate requests can be sent directly to <strong>info@laodorpros.com</strong> through the site's Vercel backend.</p>
+          <p class="form-note"><strong>Before going live:</strong> add your Resend and email env vars in Vercel so this form can send successfully.</p>
         </div>
         <div class="contact-card">
           <form id="estimateForm">
             <input type="hidden" name="_subject" value="New Free Estimate Request - LA Odor Pros">
+            <div style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true">
+              <label for="companyWebsite">Website</label>
+              <input id="companyWebsite" name="companyWebsite" type="text" tabindex="-1" autocomplete="off">
+            </div>
             <div>
               <label for="fullName">Full name</label>
               <input id="fullName" name="fullName" type="text" required placeholder="Your full name">
@@ -365,6 +369,9 @@
       </div>
     </div>
   </footer>
+  <div class="mobile-call-cta" aria-label="Mobile call button">
+    <a href="tel:+13107372434">Call Now: (310)-737-2434</a>
+  </div>
 
   <script src="script.js"></script>
 </body>
