@@ -73,8 +73,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  min-height: 78px;
+  gap: 16px;
+  min-height: 66px;
   position: relative;
 }
 
@@ -82,29 +82,33 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
   color: var(--forest);
+  flex-shrink: 0;
+  margin-left: -8px;
 }
 
-.brand-mark {
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--forest), var(--moss));
-  color: #fff;
-  font-size: 0.88rem;
-  box-shadow: 0 10px 24px rgba(22, 58, 47, 0.24);
-  transition: transform 0.45s var(--ease-spring), box-shadow 0.45s ease;
+.brand-title {
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.brand:hover .brand-mark,
-.brand:focus-visible .brand-mark {
-  transform: rotate(-8deg) scale(1.06);
-  box-shadow: 0 16px 32px rgba(22, 58, 47, 0.22);
+.brand-logo {
+  width: clamp(300px, 34vw, 480px);
+  max-height: 66px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 22px rgba(22, 58, 47, 0.12));
+  transform: none;
+  transform-origin: left center;
+  transition: transform 0.45s var(--ease-spring), filter 0.45s ease;
+}
+
+.brand:hover .brand-logo,
+.brand:focus-visible .brand-logo {
+  transform: translateY(-1px) scale(1.02);
+  filter: drop-shadow(0 16px 28px rgba(22, 58, 47, 0.18));
 }
 
 .menu-toggle {
@@ -121,13 +125,13 @@ a {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   flex-wrap: wrap;
   transition: transform 0.3s var(--ease-out-soft), opacity 0.3s ease;
 }
 
 .nav-links a {
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: 999px;
   color: var(--muted);
   font-weight: 600;
@@ -819,6 +823,15 @@ main > section:nth-of-type(1) .contact-grid {
 }
 
 @media (max-width: 980px) {
+  .brand-title {
+    font-size: 1.02rem;
+  }
+
+  .brand-logo {
+    width: clamp(248px, 44vw, 360px);
+    max-height: 58px;
+  }
+
   .hero-grid,
   .about-grid,
   .contact-grid,
@@ -894,6 +907,20 @@ main > section:nth-of-type(1) .contact-grid {
 }
 
 @media (max-width: 640px) {
+  .nav-shell {
+    min-height: 62px;
+  }
+
+  .brand-title {
+    font-size: 0.96rem;
+    letter-spacing: 0.04em;
+  }
+
+  .brand-logo {
+    width: min(78vw, 270px);
+    max-height: 52px;
+  }
+
   body {
     padding-bottom: 92px;
   }

@@ -106,7 +106,7 @@ if (form) {
         form.reset();
         if (successEl) successEl.hidden = false;
       } else if (errorEl) {
-        errorEl.textContent = formatErrorMessage(data.error);
+        errorEl.textContent = formatErrorMessage(data.error, response.status);
         errorEl.hidden = false;
       }
     } catch (error) {
@@ -123,7 +123,11 @@ if (form) {
   });
 }
 
-function formatErrorMessage(errorValue) {
+function formatErrorMessage(errorValue, statusCode) {
+  if (statusCode === 404) {
+    return "This deployment is missing the estimate form backend. Redeploy the full project root, including the api folder, to Vercel.";
+  }
+
   if (typeof errorValue === "string" && errorValue.trim()) {
     return errorValue.trim();
   }
