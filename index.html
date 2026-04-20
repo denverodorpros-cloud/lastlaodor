@@ -13,46 +13,112 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary">
+  <link rel="preload" as="image" href="logo.png">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "LA Odor Pros",
-      "url": "https://www.laodorpros.com/",
-      "telephone": "+13107372434",
-      "email": "info@laodorpros.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Los Angeles",
-        "addressRegion": "CA",
-        "addressCountry": "US"
-      },
-      "areaServed": [
-        "Los Angeles",
-        "Pasadena",
-        "Glendale",
-        "Burbank",
-        "Santa Monica",
-        "Beverly Hills",
-        "Long Beach",
-        "Anaheim",
-        "Irvine",
-        "Riverside",
-        "San Bernardino",
-        "Ventura",
-        "Oxnard",
-        "Malibu"
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://www.laodorpros.com/#business",
+          "name": "LA Odor Pros",
+          "url": "https://www.laodorpros.com/",
+          "image": "https://www.laodorpros.com/logo.png",
+          "logo": "https://www.laodorpros.com/logo.png",
+          "telephone": "+13107372434",
+          "email": "info@laodorpros.com",
+          "priceRange": "$$",
+          "description": "Professional odor removal in Los Angeles for pet, real estate, smoke, marijuana, vehicle, mold, and Airbnb odor issues.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Los Angeles",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+          },
+          "areaServed": {
+            "@type": "Place",
+            "name": "Los Angeles and surrounding areas within 100 miles"
+          },
+          "knowsAbout": [
+            "Pet odor removal",
+            "Real estate odor removal",
+            "Smoke odor removal",
+            "Marijuana odor removal",
+            "Vehicle odor removal",
+            "Mold odor removal",
+            "Airbnb odor removal"
+          ],
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Pet Odor Removal",
+                "url": "https://www.laodorpros.com/pet-odor-removal-los-angeles"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Real Estate Odor Removal",
+                "url": "https://www.laodorpros.com/real-estate-odor-removal-los-angeles"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Smoke Odor Removal",
+                "url": "https://www.laodorpros.com/smoke-odor-removal-los-angeles"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Marijuana Odor Removal",
+                "url": "https://www.laodorpros.com/marijuana-odor-removal-los-angeles"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Vehicle Odor Removal",
+                "url": "https://www.laodorpros.com/vehicle-odor-removal-los-angeles"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Mold Odor Removal",
+                "url": "https://www.laodorpros.com/mold-odor-removal-los-angeles"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Airbnb and Short-Term Rental Odor Removal",
+                "url": "https://www.laodorpros.com/airbnb-short-term-rental-odor-removal-los-angeles"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.laodorpros.com/#website",
+          "name": "LA Odor Pros",
+          "url": "https://www.laodorpros.com/",
+          "publisher": {
+            "@id": "https://www.laodorpros.com/#business"
+          }
+        }
       ]
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "LA Odor Pros",
-      "url": "https://www.laodorpros.com/"
     }
   </script>
 </head>
@@ -60,7 +126,7 @@
   <header class="site-header">
     <div class="container nav-shell">
       <a class="brand" href="index.html" aria-label="LA Odor Pros home">
-        <img class="brand-logo" src="logo.png" alt="LA Odor Pros">
+        <img class="brand-logo" src="logo.png" alt="LA Odor Pros" width="1528" height="366" fetchpriority="high">
       </a>
       <button class="menu-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav id="site-nav" class="nav-links" data-nav aria-label="Primary navigation">
@@ -139,7 +205,7 @@
         </div>
         <div class="grid-3">
           <article class="service-card">
-            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80');"></div>
+            <img class="service-image" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=640&q=65" srcset="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=480&q=60 480w, https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=640&q=65 640w, https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=70 800w" sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw" alt="Pet odor removal service" width="800" height="600" loading="lazy" decoding="async">
             <div class="service-body">
               <h3>Pet Odor Removal</h3>
               <p class="muted">Target stubborn pet urine and pet-related odors at the source.</p>
@@ -147,7 +213,7 @@
             </div>
           </article>
           <article class="service-card">
-            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80');"></div>
+            <img class="service-image" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=640&q=65" srcset="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=480&q=60 480w, https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=640&q=65 640w, https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=70 800w" sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw" alt="Real estate odor removal service" width="800" height="600" loading="lazy" decoding="async">
             <div class="service-body">
               <h3>Real Estate Odor Removal</h3>
               <p class="muted">Great for listing prep, open houses, move-outs, and rental turnovers.</p>
@@ -155,7 +221,7 @@
             </div>
           </article>
           <article class="service-card">
-            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80');"></div>
+            <img class="service-image" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=640&q=65" srcset="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=480&q=60 480w, https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=640&q=65 640w, https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=70 800w" sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw" alt="Smoke odor removal service" width="800" height="600" loading="lazy" decoding="async">
             <div class="service-body">
               <h3>Smoke Odor Removal</h3>
               <p class="muted">For cigarette, cigar, and long-term smoke exposure.</p>
@@ -163,7 +229,7 @@
             </div>
           </article>
           <article class="service-card">
-            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1603909223429-69bb7101f420?auto=format&fit=crop&w=1200&q=80');"></div>
+            <img class="service-image" src="https://images.unsplash.com/photo-1603909223429-69bb7101f420?auto=format&fit=crop&w=640&q=65" srcset="https://images.unsplash.com/photo-1603909223429-69bb7101f420?auto=format&fit=crop&w=480&q=60 480w, https://images.unsplash.com/photo-1603909223429-69bb7101f420?auto=format&fit=crop&w=640&q=65 640w, https://images.unsplash.com/photo-1603909223429-69bb7101f420?auto=format&fit=crop&w=800&q=70 800w" sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw" alt="Marijuana odor removal service" width="800" height="600" loading="lazy" decoding="async">
             <div class="service-body">
               <h3>Marijuana Odor Removal</h3>
               <p class="muted">Professional help for persistent cannabis smells.</p>
@@ -171,7 +237,7 @@
             </div>
           </article>
           <article class="service-card">
-            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1200&q=80');"></div>
+            <img class="service-image" src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=640&q=65" srcset="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=480&q=60 480w, https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=640&q=65 640w, https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=800&q=70 800w" sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw" alt="Vehicle odor removal service" width="800" height="600" loading="lazy" decoding="async">
             <div class="service-body">
               <h3>Vehicle Odor Removal</h3>
               <p class="muted">For cars, SUVs, trucks, fleets, and work vehicles.</p>
@@ -179,7 +245,7 @@
             </div>
           </article>
           <article class="service-card">
-            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80');"></div>
+            <img class="service-image" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=640&q=65" srcset="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=480&q=60 480w, https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=640&q=65 640w, https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=70 800w" sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw" alt="Mold odor removal service" width="800" height="600" loading="lazy" decoding="async">
             <div class="service-body">
               <h3>Mold Odor Removal</h3>
               <p class="muted">Reduce musty and mold-related odors in homes and businesses.</p>
@@ -187,7 +253,7 @@
             </div>
           </article>
           <article class="service-card">
-            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80');"></div>
+            <img class="service-image" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=640&q=65" srcset="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=480&q=60 480w, https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=640&q=65 640w, https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=70 800w" sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw" alt="Airbnb odor removal service" width="800" height="600" loading="lazy" decoding="async">
             <div class="service-body">
               <h3>Airbnb Odor Removal</h3>
               <p class="muted">Fast odor reset for Airbnb and short-term rental turnovers.</p>

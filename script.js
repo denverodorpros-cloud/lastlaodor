@@ -1,6 +1,7 @@
 const menuToggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
 const siteHeader = document.querySelector(".site-header");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 if (menuToggle && nav) {
   menuToggle.addEventListener("click", () => {
@@ -21,8 +22,31 @@ const updateHeaderState = () => {
   siteHeader.classList.toggle("is-scrolled", window.scrollY > 16);
 };
 
+let headerUpdateScheduled = false;
+const queueHeaderState = () => {
+  if (headerUpdateScheduled) return;
+  headerUpdateScheduled = true;
+
+  window.requestAnimationFrame(() => {
+    updateHeaderState();
+    headerUpdateScheduled = false;
+  });
+};
+
 updateHeaderState();
-window.addEventListener("scroll", updateHeaderState, { passive: true });
+window.addEventListener("scroll", queueHeaderState, { passive: true });
+
+document.querySelectorAll(".service-link").forEach((link) => {
+  const cardTitle = link
+    .closest(".service-card, .service-section")
+    ?.querySelector("h3")
+    ?.textContent
+    ?.trim();
+
+  if (cardTitle) {
+    link.setAttribute("aria-label", `Learn more about ${cardTitle}`);
+  }
+});
 
 const revealTargets = document.querySelectorAll([
   ".trust-card",
@@ -40,12 +64,14 @@ const revealTargets = document.querySelectorAll([
   ".focus-band"
 ].join(","));
 
-revealTargets.forEach((element, index) => {
-  element.classList.add("reveal-on-scroll");
-  element.style.setProperty("--stagger-index", String(index % 6));
-});
+if (!prefersReducedMotion.matches) {
+  revealTargets.forEach((element, index) => {
+    element.classList.add("reveal-on-scroll");
+    element.style.setProperty("--stagger-index", String(index % 6));
+  });
+}
 
-if ("IntersectionObserver" in window) {
+if (!prefersReducedMotion.matches && "IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
